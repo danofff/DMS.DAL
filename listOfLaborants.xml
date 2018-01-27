@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ArrayOfLaborant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Laborant>
+    <id>0</id>
+    <gender>female</gender>
+    <name>SomeName</name>
+    <DateofBirth>1984-09-27T13:56:40.9154904+06:00</DateofBirth>
+    <login>master</login>
+    <password>noneedpassword</password>
+  </Laborant>
+</ArrayOfLaborant>
