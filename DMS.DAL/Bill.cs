@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DMS.DAL
 {
+    public enum paymentType { cash, card, paypal }
     public class Bill
     {
-        public enum paymentType { cash, card, paypal}
         public int idBill{ get; set; }
         public DateTime dateBill { get; set; }
         public double AmountBill { get; set; }
