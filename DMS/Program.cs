@@ -23,7 +23,7 @@ namespace DMS
             AssemblyLaboratory al = new AssemblyLaboratory();
             al.RegisterDelegate(sm);
             /*Laboratiry lab = new Laboratiry { adress = "someadres", LabId = 1, LabNumber = "ln#1",telNumber="8-701-000-00-01" };*/
-            //al.CreateLaboratory(lab);*/
+            //al.CreateLaboratory(lab);
         }
         static void sendMessage(string mes)
         {

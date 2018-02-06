@@ -8,6 +8,11 @@ namespace DMS.DAL
 {
     public class City
     {
-       public string Name { get; set; }
+        public City(string name)
+        {
+            Name = name;
+        }
+        public string Name { get; set; }
+        List<Laboratory> lLaboratories { get; set; } = new List<Laboratory>();
     }
 }

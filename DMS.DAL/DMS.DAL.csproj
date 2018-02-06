@@ -42,10 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis.cs" />
+    <Compile Include="AnalysisResult.cs" />
     <Compile Include="AssemblyLaboratory.cs" />
     <Compile Include="Bill.cs" />
     <Compile Include="Laborant.cs" />
-    <Compile Include="Laboratiry.cs" />
+    <Compile Include="Laboratory.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="person.cs" />

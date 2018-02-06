@@ -18,9 +18,11 @@ namespace DMS.DAL
         {
             sm = d;
         }
-        public void CreateLaboratory(Laboratiry l)
+
+        #region CREATE LABORATORY
+        public void CreateLaboratory(Laboratory l)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(Laboratiry));
+            XmlSerializer formatter = new XmlSerializer(typeof(Laboratory));
             using (FileStream fs=new FileStream("lab_" + l.LabId + ".xml", FileMode.OpenOrCreate))
             {
                 try
@@ -36,6 +38,7 @@ namespace DMS.DAL
                 }
             }
         }
+        #endregion
 
         public string pathToLaborants { get
             {
