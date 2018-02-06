@@ -19,7 +19,7 @@ namespace DMS.DAL
             sm = d;
         }
 
-        #region CREATE LABORATORY
+        #region LABORATORY HANDLER
         public void CreateLaboratory(Laboratory l)
         {
             XmlSerializer formatter = new XmlSerializer(typeof(Laboratory));
@@ -40,7 +40,9 @@ namespace DMS.DAL
         }
         #endregion
 
-        public string pathToLaborants { get
+        #region LABORANTS HANDLER
+        public string pathToLaborants {
+            get
             {
                 var url = ConfigurationManager.GetSection("Path") as NameValueCollection;
                 return url["pathtoLaborants"];
@@ -96,7 +98,157 @@ namespace DMS.DAL
             }
             return l;
         }
-        
+        #endregion
+
+        #region ANALISYS HANDLER
+        public string pathToAnalisys
+        {
+            get
+            {
+                var url = ConfigurationManager.GetSection("Path") as NameValueCollection;
+                return url["pathtoAnalisys"];
+            }
+        }
+        public List<Analysis> getAnalisys()
+        {
+            List<Analysis> listAnalisys = null;
+            XmlSerializer formatter = new XmlSerializer(typeof(Analysis[]));
+            using (FileStream fs = new FileStream(pathToAnalisys, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    listAnalisys = ((Analysis[])formatter.Deserialize(fs)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return listAnalisys;
+        }
+
+        public void createAnalisys(Analysis an)
+        {
+            List<Analysis> listAnalisys = getAnalisys();
+            if (listAnalisys == null)
+            {
+                listAnalisys = new List<Analysis>();
+            }
+            listAnalisys.Add(an);
+            XmlSerializer formatter = new XmlSerializer(typeof(Analysis[]));
+            using (FileStream fs = new FileStream(pathToLaborants, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    formatter.Serialize(fs, listAnalisys.ToArray());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        #endregion
+
+        #region ANALISYS RESULT HANDLER
+        public string pathToAnalisysResults
+        {
+            get
+            {
+                var url = ConfigurationManager.GetSection("Path") as NameValueCollection;
+                return url["pathtoAnalisysResult"];
+            }
+        }
+        public List<AnalysisResult> getAnalisysResult()
+        {
+            List<AnalysisResult> listAnalisysResult = null;
+            XmlSerializer formatter = new XmlSerializer(typeof(AnalysisResult[]));
+            using (FileStream fs = new FileStream(pathToAnalisys, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    listAnalisysResult = ((AnalysisResult[])formatter.Deserialize(fs)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return listAnalisysResult;
+        }
+
+        public void createAnalisysResult(AnalysisResult an)
+        {
+            List<AnalysisResult> listAnalisysResult = getAnalisysResult();
+            if (listAnalisysResult == null)
+            {
+                listAnalisysResult = new List<AnalysisResult>();
+            }
+            listAnalisysResult.Add(an);
+            XmlSerializer formatter = new XmlSerializer(typeof(AnalysisResult[]));
+            using (FileStream fs = new FileStream(pathToLaborants, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    formatter.Serialize(fs, listAnalisysResult.ToArray());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        #endregion
+
+        #region BILLS HANDLER
+        public string pathToBills
+        {
+            get
+            {
+                var url = ConfigurationManager.GetSection("Path") as NameValueCollection;
+                return url["pathToBills"];
+            }
+        }
+        public List<Bill> getBills()
+        {
+            List<Bill> listBills = null;
+            XmlSerializer formatter = new XmlSerializer(typeof(Bill[]));
+            using (FileStream fs = new FileStream(pathToAnalisys, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    listBills = ((Bill[])formatter.Deserialize(fs)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return listBills;
+        }
+
+        public void createAnalisysResult(Bill b)
+        {
+            List<Bill> listBills = getBills();
+            if (listBills == null)
+            {
+                listBills = new List<Bill>();
+            }
+            listBills.Add(b);
+            XmlSerializer formatter = new XmlSerializer(typeof(Bill[]));
+            using (FileStream fs = new FileStream(pathToLaborants, FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    formatter.Serialize(fs, listBills.ToArray());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        #endregion
 
     }
 }

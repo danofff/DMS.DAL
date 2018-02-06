@@ -12,7 +12,6 @@ namespace DMS.DAL
         {
             Name = name;
         }
-        public string Name { get; set; }
-        List<Laboratory> lLaboratories { get; set; } = new List<Laboratory>();
+        public string Name { get;}
     }
 }

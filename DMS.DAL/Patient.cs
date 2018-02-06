@@ -16,6 +16,6 @@ namespace DMS.DAL
         {         
         }
 
-        public List<Analysis> AnalysisPassed { get; set; } = new List<Analysis>();
+        public List<AnalysisResult> AnalysisPassed { get; set; } = new List<AnalysisResult>();
     }
 }

@@ -25,5 +25,7 @@ namespace DMS.DAL
         public Laborant Labt { get; set; }
         public string result { get; set; }
 
+        public 
+
     }
 }

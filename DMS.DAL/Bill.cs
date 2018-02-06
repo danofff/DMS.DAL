@@ -9,16 +9,18 @@ namespace DMS.DAL
     public enum paymentType { cash, card, paypal }
     public class Bill
     {
-        public Bill()
+        public Bill(List<Analysis> lAnalisys)
         {
+            foreach (Analysis item in lAnalisys)
+            {
+                AmountBill += item.price;
+            }
             idBill = Guid.NewGuid();
         }
         public Guid idBill{ get;}
         public DateTime dateBill { get; set; }
-        public double AmountBill { get; set; }
-        public string currency { get; set; }
+        public double AmountBill { get; } = 0;
         public paymentType payment { get; set; }
         public string descriptionBill { get; set; }
-
     }
 }
